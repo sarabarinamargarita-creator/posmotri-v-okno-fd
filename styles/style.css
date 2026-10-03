@@ -4,8 +4,28 @@
   box-sizing: border-box;
 }
 
-html {
+html, 
+body {
   block-size: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+ol,
+li,
+blockquote,
+fieldset {
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+ol {
+  list-style: none;
 }
 
 .page {
@@ -28,18 +48,11 @@ html {
   width: 1140px;
 }
 
-.search-form {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-
-.content__list-container {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-  height: 298px;
-  overflow-y: auto;
+.result__video-container {
+  width: 711px;
+  height: 386px;
+  margin-bottom: 16px;
+  position: relative;
 }
 
 .content__details {
@@ -50,10 +63,12 @@ gap: 26px;
 height: 100%;
 }
 
-.result__video-container {
-  width: 711px;
-  height: 386;
-  margin-bottom: 16px;
+.content__list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  height: 298px;
+  overflow-y: auto;
   position: relative;
 }
 
@@ -88,13 +103,6 @@ object-position: center;
   min-width: 0;
 }
 
-.search-form__fieldset-title {
-  font-size: 18px;
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 5px;
-}
-
 .title {
   font-size: 75px;
   font-weight: 700;
@@ -107,8 +115,36 @@ object-position: center;
 }
 
 .content__card-link {
+  display: block;
   color: inherit;
   text-decoration: none;
+  cursor: pointer;
+}
+
+.content__card-link_current {
+  background-color: #545050;
+}
+
+.content__card-link:active {
+  background-color: #545050;
+}
+
+.content__card-link:hover .content__video-card-title, 
+.content__card-link:hover .content__video-card-description {
+  text-decoration: underline;
+}
+
+.content__card-link:focus {
+  outline: none;
+}
+
+.content__card-link:focus-visible {
+  outline: 1px solid #fff;
+  outline-offset: 2px;
+}
+
+.content__list-item {
+  padding: 0 3px;
 }
 
 .content__video-card-title {
@@ -132,25 +168,21 @@ object-position: center;
   overflow: hidden;
 }
 
-.visually-hidden {
-  position: absolute;
-  inline-size: 1px;
-  block-size: 1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  white-space: nowrap;
-}
-
-.search-form__checkbox-list {
+.search-form {
   display: flex;
-  gap: 15px;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 .search-form__fieldset {
   border: none;
-  padding: 0;
-  margin: 0;
+}
+
+.search-form__fieldset-title {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 5px;
 }
 
 .search-form__label {
@@ -158,10 +190,11 @@ object-position: center;
   align-items: center;
   gap: 10px;
   width: fit-content;
+  cursor: pointer;
 }
 
 .search-form__textfield {
-  width: 225px;
+  width: 226px;
   background-color: #1B1919;
   border: none;
   border-top: 1px solid #fff;
@@ -169,7 +202,7 @@ object-position: center;
   color: #fff;
   font-family: inherit;
   font-size: inherit;
-  padding: 12px 14px;
+  padding: 2px 14px 2px 0;
   appearance: none;
 }
 
@@ -186,6 +219,10 @@ object-position: center;
   outline-offset: 2px;
 }
 
+.search-form__checkbox-list {
+  display: flex;
+  gap: 15px;
+}
 .search-form__pseudo-checkbox {
   width: 19px;
   height: 19px;
@@ -209,27 +246,55 @@ object-position: center;
   opacity: 1;
 }
 
-.search-form__checkbox-list .search-form__label:hover . .search-form__label-text {
+.search-form__checkbox-list .search-form__label:hover .search-form__label-text {
   text-decoration: underline;
 }
 
-h1,
-h2,
-h3,
-h4,
-p,
-ul,
-ol,
-li,
-blockquote,
-fieldset {
-  margin: 0;
-  padding: 0;
+.visually-hidden {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 
-ul,
-ol {
-  list-style: none;
+.button {
+  appearance: none;
+  border: 1px solid #fff;
+  color: #fff;
+  background-color: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  padding: 6px 73px;
+}
+
+.search-form__submit-button {
+  width: 194px;
+  align-self: flex-end;
+}
+
+.more-button {
+  width: 100%;
+}
+
+.button:hover {
+  text-decoration: underline;
+}
+
+.button:active {
+  background-color: #545050;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:focus-visible {
+  outline: 1px solid #fff;
+  outline-offset: 2px;
 }
 
 /* Кастомный скроллбар */
